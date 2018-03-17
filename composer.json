@@ -2,7 +2,7 @@
     "name": "ceive/data-attribute-locator",
     "description": "Attribute locator by string path and syntax",
     "type": "component",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Alexey Kutuzov",
