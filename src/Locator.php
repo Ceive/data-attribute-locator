@@ -130,7 +130,7 @@ class Locator{
 				$this->beforeGet();
 				$this->value = $this->getFrom($this->container, $this->key);
 			}catch(CatchableException $e){
-				return $this->onNotFound();
+			    return $this->wrapNotFound();
 			}catch(FoundException $e){
 				$this->value = $e->value;
 			}catch(ContinueException $e){}
@@ -420,8 +420,7 @@ class Locator{
 		if(!$this->throwOnMissing){
 			return null;
 		}
-		
-		
+
 		throw new MissingException(
 			$this->startContainer,
 			$this->pathString($this->startPath),
@@ -501,10 +500,15 @@ class Locator{
 		}
 		
 	}
-	
-	
-	
-	
+
+    private function wrapNotFound()
+    {
+
+        return $this->onNotFound();
+    }
+
+
+
 }
 
 
